@@ -1,0 +1,70 @@
+
+### CADASTRAR ANIMAL
+POST http://localhost:5286/adopet/animais/cadastrar
+Content-Type: application/json
+
+{
+    "nome": "Bruce",
+    "especie": "Cachorro",
+    "raca": "Pitbull",
+    "idade": 6,
+    "disponivelParaAdocao": false,
+    "abrigoId": 1
+}
+
+### LISTAR ANIMAIS
+GET http://localhost:5286/adopet/animais/listar
+Accept: application/json
+
+### ATUALIZAR ANIMAIS
+PUT http://localhost:5286/adopet/animais/29
+Content-Type: application/json
+
+{
+  "nome": "Rex",
+  "especie": "Cachorro",
+  "raca": "Pitbull",
+  "idade": 6,
+  "disponivelParaAdocao": true,
+  "abrigoId": 1
+}
+
+### EXCLUIR ANIMAL
+DELETE http://localhost:5286/adopet/animais/29
+Content-Type: application/json
+
+### CADASTRAR ADOÇÃO
+POST http://localhost:5286/adopet/adocoes/cadastrar
+Content-Type: application/json
+
+{
+    "adotanteId": 1,
+    "animalId": 1,
+    "dataAdocao": "2024-10-18T14:30:00",
+    "status": "Pendente"
+}
+### CADASTRAR ADOTANTE
+POST http://localhost:5286/adopet/adotantes/cadastrar
+Content-Type: application/json
+
+{
+    "nome": "Alisson",
+    "email": "silvaalisson761@gmail.com"
+}
+
+### CADASTRAR ABRIGO
+POST http://localhost:5286/adopet/abrigos/cadastrar
+Content-Type: application/json
+
+{
+    "nome": "Abrigo São Francisco",
+    "localizacao": "Rua A, 123",
+    "telefone": "123456789"
+}
+
+### LISTAR ABRIGOS
+GET http://localhost:5286/adopet/abrigos/listar
+Accept: application/json
+
+###
+DELETE http://localhost:5286/adopet/abrigos/13
