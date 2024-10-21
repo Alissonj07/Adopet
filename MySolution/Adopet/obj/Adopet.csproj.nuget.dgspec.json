@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alisson.silva\\Desktop\\Final\\MySolution\\Adopet\\Adopet.csproj": {}
+    "C:\\Users\\alvel\\Downloads\\Lipos\\Adopet\\MySolution\\Adopet\\Adopet.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alisson.silva\\Desktop\\Final\\MySolution\\Adopet\\Adopet.csproj": {
+    "C:\\Users\\alvel\\Downloads\\Lipos\\Adopet\\MySolution\\Adopet\\Adopet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alisson.silva\\Desktop\\Final\\MySolution\\Adopet\\Adopet.csproj",
+        "projectUniqueName": "C:\\Users\\alvel\\Downloads\\Lipos\\Adopet\\MySolution\\Adopet\\Adopet.csproj",
         "projectName": "Adopet",
-        "projectPath": "C:\\Users\\alisson.silva\\Desktop\\Final\\MySolution\\Adopet\\Adopet.csproj",
-        "packagesPath": "C:\\Users\\alisson.silva\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alisson.silva\\Desktop\\Final\\MySolution\\Adopet\\obj\\",
+        "projectPath": "C:\\Users\\alvel\\Downloads\\Lipos\\Adopet\\MySolution\\Adopet\\Adopet.csproj",
+        "packagesPath": "C:\\Users\\alvel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alvel\\Downloads\\Lipos\\Adopet\\MySolution\\Adopet\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\alisson.silva\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\alvel\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
