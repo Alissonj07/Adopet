@@ -1,12 +1,22 @@
 using Adopet.Models;
+using Adopet.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(
+    options =>
+
+        options.AddPolicy("Acesso Total",
+        configs => configs
+        .AllowAnyOrigin()
+        .AllowAnyHeader()
+        .AllowAnyMethod())
+    );
 // Configuração do banco de dados
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite("Data Source=BancoAdopet.db"));
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite("Data Source=BancoAdopet.db"));
 
 var app = builder.Build();
 
@@ -22,6 +32,15 @@ app.MapGet("/adopet/abrigos/listar", async ([FromServices] AppDbContext ctx) =>
 {
     var abrigos = await ctx.Abrigos.ToListAsync();
     return abrigos.Any() ? Results.Ok(abrigos) : Results.NotFound();
+});
+
+app.MapDelete("/adopet/abrigos/{id}", async (int id, [FromServices] AppDbContext ctx) =>
+{
+    var abrigo = await ctx.Abrigos.FindAsync(id);
+    if (abrigo == null) return Results.NotFound();
+    ctx.Abrigos.Remove(abrigo);
+    await ctx.SaveChangesAsync();
+    return Results.NoContent();
 });
 
 // Rotas para gerenciar animais
@@ -78,12 +97,36 @@ app.MapGet("/adopet/adotantes/listar", async ([FromServices] AppDbContext ctx) =
     return Results.Ok(adotantes);
 });
 
-// Rotas para gerenciar adoções
-app.MapPost("/adopet/adocoes/cadastrar", async ([FromBody] Adocao adocao, [FromServices] AppDbContext ctx) =>
+app.MapDelete("/adopet/adotantes/{id}", async (int id, [FromServices] AppDbContext ctx) =>
 {
-    ctx.Adocoes.Add(adocao);
+    Console.WriteLine($"Request para excluir adotante com ID {id}");
+    var adotante = await ctx.Adotantes.FindAsync(id);
+    if (adotante == null)
+    {
+        Console.WriteLine($"Adotante com ID {id} não encontrado.");
+        return Results.NotFound();
+    }
+
+    ctx.Adotantes.Remove(adotante);
     await ctx.SaveChangesAsync();
-    return Results.Created($"/adopet/adocoes/{adocao.AdocaoId}", adocao);
+    Console.WriteLine($"Adotante com ID {id} foi removido.");
+    return Results.NoContent();
+});
+
+// Rotas para gerenciar adoções
+app.MapPost("/adopet/adocoes/cadastrar", async (HttpContext context, [FromBody] Adocao adocao, [FromServices] AppDbContext ctx) =>
+{
+    try
+    {
+        ctx.Adocoes.Add(adocao);
+        await ctx.SaveChangesAsync();
+        return Results.Created($"/adopet/adocoes/{adocao.AdocaoId}", adocao);
+    }
+    catch (Exception ex)
+    {
+        await context.Response.WriteAsync($"Erro: {ex.Message}");
+        return Results.BadRequest(new { message = ex.Message });
+    }
 });
 
 app.MapGet("/adopet/adocoes/listar", async ([FromServices] AppDbContext ctx) =>
@@ -112,5 +155,8 @@ app.MapDelete("/adopet/adocoes/{id}", async (int id, [FromServices] AppDbContext
     await ctx.SaveChangesAsync();
     return Results.NoContent();
 });
+
+
+app.UseCors("Acesso total");
 
 app.Run();

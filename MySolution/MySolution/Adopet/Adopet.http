@@ -1,4 +1,3 @@
-
 ### CADASTRAR ANIMAL
 POST http://localhost:5286/adopet/animais/cadastrar
 Content-Type: application/json
@@ -8,30 +7,28 @@ Content-Type: application/json
     "especie": "Cachorro",
     "raca": "Pitbull",
     "idade": 6,
-    "disponivelParaAdocao": false,
+    "disponivelParaAdocao": true,
     "abrigoId": 1
 }
 
-### LISTAR ANIMAIS
-GET http://localhost:5286/adopet/animais/listar
-Accept: application/json
-
-### ATUALIZAR ANIMAIS
-PUT http://localhost:5286/adopet/animais/29
+### CADASTRAR ABRIGO
+POST http://localhost:5286/adopet/abrigos/cadastrar
 Content-Type: application/json
 
 {
-  "nome": "Rex",
-  "especie": "Cachorro",
-  "raca": "Pitbull",
-  "idade": 6,
-  "disponivelParaAdocao": true,
-  "abrigoId": 1
+    "nome": "Abrigo São Jose de Paula",
+    "localizacao": "Rua XVI, 25",
+    "telefone": "123456789"
 }
 
-### EXCLUIR ANIMAL
-DELETE http://localhost:5286/adopet/animais/29
+### CADASTRAR ADOTANTE
+POST http://localhost:5286/adopet/adotantes/cadastrar
 Content-Type: application/json
+
+{
+    "nome": "Tiringa",
+    "email": "tiringadafaca@gmail.com"
+}
 
 ### CADASTRAR ADOÇÃO
 POST http://localhost:5286/adopet/adocoes/cadastrar
@@ -40,31 +37,48 @@ Content-Type: application/json
 {
     "adotanteId": 1,
     "animalId": 1,
-    "dataAdocao": "2024-10-18T14:30:00",
-    "status": "Pendente"
-}
-### CADASTRAR ADOTANTE
-POST http://localhost:5286/adopet/adotantes/cadastrar
-Content-Type: application/json
-
-{
     "nome": "Alisson",
-    "email": "silvaalisson761@gmail.com"
+    "dataAdocao": "2024-10-18T14:30:00",
+    "status": "Aprovado"
 }
 
-### CADASTRAR ABRIGO
-POST http://localhost:5286/adopet/abrigos/cadastrar
+### ATUALIZAR ANIMAIS
+PUT http://localhost:5286/adopet/animais/3
 Content-Type: application/json
 
 {
-    "nome": "Abrigo São Francisco",
-    "localizacao": "Rua A, 123",
-    "telefone": "123456789"
+    "nome": "Mario",
+    "especie": "Gato",
+    "raca": "Siamês",
+    "idade": 2,
+    "disponivelParaAdocao": false,
+    "abrigoId": 1
 }
+
+### LISTAR ANIMAIS
+GET http://localhost:5286/adopet/animais/listar
+Accept: application/json
 
 ### LISTAR ABRIGOS
 GET http://localhost:5286/adopet/abrigos/listar
 Accept: application/json
 
-###
-DELETE http://localhost:5286/adopet/abrigos/13
+### LISTAR ADOTANTES
+GET http://localhost:5286/adopet/adotantes/listar
+Accept: application/json
+
+### LISTAR ADOÇÕES
+GET http://localhost:5286/adopet/adocoes/listar
+Accept: application/json
+
+### EXCLUIR ANIMAL
+DELETE http://localhost:5286/adopet/animais/3
+
+### EXCLUIR ABRIGO
+DELETE http://localhost:5286/adopet/abrigos/30
+
+### EXCLUIR ADOÇÕES
+DELETE http://localhost:5286/adopet/adocoes/
+
+### EXCLUIR ADOTANTES
+DELETE  http://localhost:5286/adopet/adotantes/4

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Adopet.Models
 {
     public class Animal
@@ -8,7 +10,8 @@ namespace Adopet.Models
         public string Raca { get; set; }
         public int Idade { get; set; }
         public bool DisponivelParaAdocao { get; set; }
-        public int AbrigoId { get; set; }
-        public Abrigo Abrigo { get; set; }
+
+        public int AbrigoId { get; set; } // Chave estrangeira
+        public Abrigo Abrigo { get; set; } // Propriedade de navegação para o Abrigo
     }
 }

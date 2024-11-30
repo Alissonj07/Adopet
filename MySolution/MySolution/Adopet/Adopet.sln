@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adopet", "Adopet.csproj", "{C8358B93-EB70-476F-8619-210F562B5178}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adopet", "Adopet.csproj", "{867A1F27-B125-4E10-BFE9-1D95C2A278AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C8358B93-EB70-476F-8619-210F562B5178}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C8358B93-EB70-476F-8619-210F562B5178}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C8358B93-EB70-476F-8619-210F562B5178}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C8358B93-EB70-476F-8619-210F562B5178}.Release|Any CPU.Build.0 = Release|Any CPU
+		{867A1F27-B125-4E10-BFE9-1D95C2A278AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{867A1F27-B125-4E10-BFE9-1D95C2A278AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{867A1F27-B125-4E10-BFE9-1D95C2A278AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{867A1F27-B125-4E10-BFE9-1D95C2A278AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {91829ABE-5D3D-4971-A7BD-D0ABC81EC53C}
+		SolutionGuid = {CD8E6000-A18D-4FC6-A074-2B9585AD0796}
 	EndGlobalSection
 EndGlobal
